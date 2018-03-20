@@ -1,0 +1,11 @@
+/* eslint-disable linebreak-style */
+export const LOGIN = 'login'
+export const LOGOUT = 'logout'
+export const TITLE = 'title'
+export const USER = 'userstatus'
+export const SETTING = 'usersetting'
+export const MENU = 'menu'
+export const MENUTAG = 'menutag'
+export const SCREEN = 'screen'
+export const GPS = 'gps'
+export const ALARM = 'alarm'

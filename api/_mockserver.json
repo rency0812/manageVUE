@@ -1,0 +1,660 @@
+{
+  "$schema": "http://rawgit.com/ufologist/puer-mock/master/_mockserver-schema.json",
+  // 项目的介绍信息
+  "info": {
+    "summary": "EXWEBUI项目接口文档",
+    "description": "如此高大上的接口文档 Powered by ximoo"
+  },
+  // 接口列表
+  "api": {
+    //登录接口
+    "GET /api/GetUserLogin": {
+      "info": {
+        "summary": "配置一个 GET 接口, 以 JSON 作为输入参数",
+        "module": "登录接口",
+        "description": "",
+        "author": "Sun"
+      },
+      "request": {
+        "body": {
+          "*Account": "ximoo",
+          "*Password": "111111"
+        }
+      },
+      "response": {
+        "Msg": "登录成功!",
+        "isSuccess": true,
+        "ReturnValue": {
+          "access_token": "@string(35)"
+        }
+      }
+    },
+    //获取菜单接口
+    "GET /api/GetMenuList": {
+      "info": {
+        "summary": "配置一个 GET 接口, 以 JSON 作为输入参数",
+        "module": "获取菜单接口",
+        "description": "",
+        "author": "Sun"
+      },
+      "request": {
+        "body": {
+          "*Account": "ximoo"
+        }
+      },
+      "response": {
+        "Msg": "获取成功!",
+        "isSuccess": true,
+        "ReturnValue": {
+          "menu": [
+            {
+              "id": 1,
+              "text": "数据概览",
+              "url": "/overview",
+              "children": []
+            },
+            {
+              "id": 2,
+              "text": "实时监控",
+              "url": "/mapview"
+            },
+            {
+              "id": 3,
+              "text": "资质管理",
+              "url": "/aptitude/company",
+              "children": [
+                {
+                  "id": 31,
+                  "text": "企业管理",
+                  "url": "/aptitude/company"
+                },
+                {
+                  "id": 32,
+                  "text": "车辆管理",
+                  "url": "/aptitude/vehicle"
+                }
+              ]
+            },
+            {
+              "id": 4,
+              "text": "工地管理",
+              "url": "/aptitude/company",
+              "children": [
+                {
+                  "id": 41,
+                  "text": "基础信息",
+                  "url": "/aptitude/company"
+                },
+                {
+                  "id": 42,
+                  "text": "门禁管理",
+                  "url": "/aptitude/company"
+                },
+                {
+                  "id": 43,
+                  "text": "统计信息",
+                  "url": "/aptitude/company"
+                }
+              ]
+            },
+            {
+              "id": 5,
+              "text": "卡点管理",
+              "url": "/aptitude/company",
+              "children": [
+                {
+                  "id": 41,
+                  "text": "基础信息",
+                  "url": "/aptitude/company"
+                },
+                {
+                  "id": 42,
+                  "text": "卡点设置",
+                  "url": "/aptitude/company"
+                },
+                {
+                  "id": 43,
+                  "text": "统计信息",
+                  "url": "/aptitude/company"
+                }
+              ]
+            },
+            {
+              "id": 6,
+              "text": "线路管理",
+              "url": "/aptitude/company",
+              "children": [
+                {
+                  "id": 41,
+                  "text": "基础信息",
+                  "url": "/aptitude/company"
+                },
+                {
+                  "id": 42,
+                  "text": "线路规划",
+                  "url": "/aptitude/company"
+                },
+                {
+                  "id": 43,
+                  "text": "线路管理",
+                  "url": "/aptitude/company"
+                }
+              ]
+            },
+            {
+              "id": 7,
+              "text": "消纳点管理",
+              "url": "/aptitude/company",
+              "children": [
+                {
+                  "id": 41,
+                  "text": "基础信息",
+                  "url": "/aptitude/company"
+                },
+                {
+                  "id": 42,
+                  "text": "门禁管理",
+                  "url": "/aptitude/company"
+                },
+                {
+                  "id": 43,
+                  "text": "统计信息",
+                  "url": "/aptitude/company"
+                }
+              ]
+            },
+            {
+              "id": 8,
+              "text": "考核管理",
+              "url": "/aptitude/company",
+              "children": [
+                {
+                  "id": 81,
+                  "text": "处罚列表",
+                  "url": "/aptitude/company"
+                },
+                {
+                  "id": 82,
+                  "text": "考核明细",
+                  "url": "/aptitude/company"
+                }
+              ]
+            },
+            {
+              "id": 9,
+              "text": "执法管理",
+              "url": "/aptitude/company",
+              "children": [
+                {
+                  "id": 91,
+                  "text": "违规上报",
+                  "url": "/aptitude/company"
+                },
+                {
+                  "id": 92,
+                  "text": "群众举报",
+                  "url": "/aptitude/company"
+                }
+              ]
+            },
+            {
+              "id": 10,
+              "text": "统计分析",
+              "url": "/aptitude/company"
+            },
+            {
+              "id": 11,
+              "text": "人员监管",
+              "url": "/aptitude/company"
+            },
+            {
+              "id": 12,
+              "text": "系统管理",
+              "url": "/system",
+              "children": [
+                {
+                  "id": 121,
+                  "text": "企业信息",
+                  "url": "/aptitude/company"
+                },
+                {
+                  "id": 122,
+                  "text": "云图管理",
+                  "url": "/system/cloud"
+                },
+                {
+                  "id": 123,
+                  "text": "角色管理",
+                  "url": "/aptitude/company"
+                },
+                {
+                  "id": 124,
+                  "text": "部门管理",
+                  "url": "/aptitude/company"
+                },
+                {
+                  "id": 125,
+                  "text": "操作日志",
+                  "url": "/aptitude/company"
+                },
+                {
+                  "id": 126,
+                  "text": "报警规则",
+                  "url": "/aptitude/company"
+                }
+              ]
+            }
+          ]
+        }
+      }
+    },
+    //获取企业树
+    "POST /api/GetTreeCompany": {
+      "info": {
+        "summary": "配置一个 POST 接口, 以 JSON 作为输入参数",
+        "module": "获取企业树",
+        "description": "",
+        "author": "Sun"
+      },
+      "request": {
+        "body": {
+          "*Account": "ximoo"
+        }
+      },
+      "response": {
+        "Msg": "获取成功!",
+        "isSuccess": true,
+        "ReturnValue": {
+          "treeData": [
+            {
+              "expand": true,
+              "title": "<i class='ex-icon ex-icon-building'></i> 武汉市",
+              "name": "wuhan",
+              "children": [
+                {
+                  "title": "<i class='ex-icon ex-icon-building'></i> 洪山区",
+                  "name": "hongshan",
+                  "expand": true,
+                  "children|1-30": [
+                    {
+                      "title": "<i class='ex-icon ex-icon-building'></i> @cname 运输有限公司",
+                      "name": "@increment"
+                    }
+                  ]
+                },
+                {
+                  "title": "<i class='ex-icon ex-icon-building'></i> 硚口区",
+                  "name": "qiaokou",
+                  "expand": false,
+                  "children|1-30": [
+                    {
+                      "title": "<i class='ex-icon ex-icon-building'></i> @cname 运输有限公司",
+                      "name": "@increment"
+                    }
+                  ]
+                },
+                {
+                  "title": "<i class='ex-icon ex-icon-building'></i> 江汉区",
+                  "name": "jianghan",
+                  "expand": false,
+                  "children|1-30": [
+                    {
+                      "title": "<i class='ex-icon ex-icon-building'></i> @cname 运输有限公司",
+                      "name": "@increment"
+                    }
+                  ]
+                },
+                {
+                  "title": "<i class='ex-icon ex-icon-building'></i> 江岸区",
+                  "name": "jiangan",
+                  "expand": false,
+                  "children|1-30": [
+                    {
+                      "title": "<i class='ex-icon ex-icon-building'></i> @cname 运输有限公司",
+                      "name": "@increment"
+                    }
+                  ]
+                },
+                {
+                  "title": "<i class='ex-icon ex-icon-building'></i> 武昌区",
+                  "name": "wuchang",
+                  "expand": false,
+                  "children|1-30": [
+                    {
+                      "title": "<i class='ex-icon ex-icon-building'></i> @cname 运输有限公司",
+                      "name": "@increment"
+                    }
+                  ]
+                },
+                {
+                  "title": "<i class='ex-icon ex-icon-building'></i> 汉阳区",
+                  "name": "hanyang",
+                  "expand": false,
+                  "children|1-30": [
+                    {
+                      "title": "<i class='ex-icon ex-icon-building'></i> @cname 运输有限公司",
+                      "name": "@increment"
+                    }
+                  ]
+                },
+                {
+                  "title": "<i class='ex-icon ex-icon-building'></i> 汉南区",
+                  "name": "hannan",
+                  "expand": false,
+                  "children|1-30": [
+                    {
+                      "title": "<i class='ex-icon ex-icon-building'></i> @cname 运输有限公司",
+                      "name": "@increment"
+                    }
+                  ]
+                },
+                {
+                  "title": "<i class='ex-icon ex-icon-building'></i> 江夏区",
+                  "name": "jiangxia",
+                  "expand": false,
+                  "children|1-30": [
+                    {
+                      "title": "<i class='ex-icon ex-icon-building'></i> @cname 运输有限公司",
+                      "name": "@increment"
+                    }
+                  ]
+                },
+                {
+                  "title": "<i class='ex-icon ex-icon-building'></i> 蔡甸区",
+                  "name": "caidian",
+                  "expand": false,
+                  "children|1-30": [
+                    {
+                      "title": "<i class='ex-icon ex-icon-building'></i> @cname 运输有限公司",
+                      "name": "@increment"
+                    }
+                  ]
+                },
+                {
+                  "title": "<i class='ex-icon ex-icon-building'></i> 青山区",
+                  "name": "qingshan",
+                  "expand": false,
+                  "children|1-30": [
+                    {
+                      "title": "<i class='ex-icon ex-icon-building'></i> @cname 运输有限公司",
+                      "name": "@increment"
+                    }
+                  ]
+                },
+                {
+                  "title": "<i class='ex-icon ex-icon-building'></i> 黄陂区",
+                  "name": "huangpi",
+                  "expand": false,
+                  "children|1-30": [
+                    {
+                      "title": "<i class='ex-icon ex-icon-building'></i> @cname 运输有限公司",
+                      "name": "@increment"
+                    }
+                  ]
+                },
+                {
+                  "title": "<i class='ex-icon ex-icon-building'></i> 东西湖区",
+                  "name": "dongxihu",
+                  "expand": false,
+                  "children|1-30": [
+                    {
+                      "title": "<i class='ex-icon ex-icon-building'></i> @cname 运输有限公司",
+                      "name": "@increment"
+                    }
+                  ]
+                },
+                {
+                  "title": "<i class='ex-icon ex-icon-building'></i> 东湖高新区",
+                  "name": "donghu",
+                  "expand": false,
+                  "children|1-30": [
+                    {
+                      "title": "<i class='ex-icon ex-icon-building'></i> @cname 运输有限公司",
+                      "name": "@increment"
+                    }
+                  ]
+                },
+                {
+                  "title": "<i class='ex-icon ex-icon-building'></i> 沌口开发区",
+                  "name": "zhuankou",
+                  "expand": false,
+                  "children|1-50": [
+                    {
+                      "title": "<i class='ex-icon ex-icon-building'></i> @cname 运输有限公司",
+                      "name": "@increment"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      }
+    },
+    //获取区域树
+    "POST /api/GetTreeRegion": {
+      "info": {
+        "summary": "配置一个 POST 接口, 以 JSON 作为输入参数",
+        "module": "获取企业树",
+        "description": "",
+        "author": "Sun"
+      },
+      "request": {
+        "body": {
+          "*Account": "ximoo"
+        }
+      },
+      "response": {
+        "Msg": "获取成功!",
+        "isSuccess": true,
+        "ReturnValue": {
+          "treeData": [
+            {
+              "expand": true,
+              "title": "<i class='ex-icon ex-icon-building'></i> 武汉市",
+              "name": "wuhan",
+              "children": [
+                {
+                  "title": "<i class='ex-icon ex-icon-building'></i> 洪山区",
+                  "name": "hongshan",
+                  "expand": true
+                },
+                {
+                  "title": "<i class='ex-icon ex-icon-building'></i> 硚口区",
+                  "name": "qiaokou",
+                  "expand": false
+                },
+                {
+                  "title": "<i class='ex-icon ex-icon-building'></i> 江汉区",
+                  "name": "jianghan",
+                  "expand": false
+                },
+                {
+                  "title": "<i class='ex-icon ex-icon-building'></i> 江岸区",
+                  "name": "jiangan",
+                  "expand": false
+                },
+                {
+                  "title": "<i class='ex-icon ex-icon-building'></i> 武昌区",
+                  "name": "wuchang",
+                  "expand": false
+                },
+                {
+                  "title": "<i class='ex-icon ex-icon-building'></i> 汉阳区",
+                  "name": "hanyang",
+                  "expand": false
+                },
+                {
+                  "title": "<i class='ex-icon ex-icon-building'></i> 汉南区",
+                  "name": "hannan",
+                  "expand": false
+                },
+                {
+                  "title": "<i class='ex-icon ex-icon-building'></i> 江夏区",
+                  "name": "jiangxia",
+                  "expand": false
+                },
+                {
+                  "title": "<i class='ex-icon ex-icon-building'></i> 蔡甸区",
+                  "name": "caidian",
+                  "expand": false
+                },
+                {
+                  "title": "<i class='ex-icon ex-icon-building'></i> 青山区",
+                  "name": "qingshan",
+                  "expand": false
+                },
+                {
+                  "title": "<i class='ex-icon ex-icon-building'></i> 黄陂区",
+                  "name": "huangpi",
+                  "expand": false
+                },
+                {
+                  "title": "<i class='ex-icon ex-icon-building'></i> 东西湖区",
+                  "name": "dongxihu",
+                  "expand": false
+                },
+                {
+                  "title": "<i class='ex-icon ex-icon-building'></i> 东湖高新区",
+                  "name": "donghu",
+                  "expand": false
+                },
+                {
+                  "title": "<i class='ex-icon ex-icon-building'></i> 沌口开发区",
+                  "name": "zhuankou",
+                  "expand": false
+                }
+              ]
+            }
+          ]
+        }
+      }
+    },
+    //获取企业列表信息
+    "POST /api/GetCompanyTableData": {
+      "info": {
+        "summary": "配置一个 POST 接口, 以 JSON 作为输入参数",
+        "module": "接口配置示例-输入参数(request)",
+        "description": "",
+        "author": "Sun"
+      },
+      "request": {
+        "body": {
+          "*Account": "ximoo"
+        }
+      },
+      "response": {
+        "Msg": "获取成功!",
+        "isSuccess": true,
+        "ReturnValue": {
+          "PageIndex": 1,
+          "PageSize": 40,
+          "PageTotal": 100,
+          "companyData|40": [
+            {
+              "ID": "@id",
+              "Name": "@name",
+              "nickName": "@cname",
+              "Region": "@region",
+              "Money": "￥@float(60000, 100000, 3, 2)",
+              "LawMan": "@cname",
+              "PhoneNum": "@integer(3000)",
+              "License": "@integer(3000)",
+              "Vehicles": "@float(200, 1000,0)",
+              "Devices": "@float(200, 1000,0)",
+              "Contact": "@cname",
+              "ContactPhoneNum": "@integer(3000)",
+              "Region": "洪山区",
+              "Aptitude": "有资质",
+              "Date1": "@now",
+              "Date2": "@now",
+              "Stop": "@county@province@city",
+              "Address": "@county@province@city"
+            }
+          ]
+        }
+      }
+    },
+    //获取Cloud列表信息
+    "POST /api/GetCloudTableData": {
+      "info": {
+        "summary": "配置一个 POST 接口, 以 JSON 作为输入参数",
+        "module": "接口配置示例-输入参数(request)",
+        "description": "",
+        "author": "Sun"
+      },
+      "request": {
+        "body": {
+          "*Account": "ximoo"
+        }
+      },
+      "response": {
+        "Msg": "获取成功!",
+        "isSuccess": true,
+        "ReturnValue": {
+          "PageIndex": 1,
+          "PageSize": 40,
+          "PageTotal": 100,
+          "cloudData|0-5": [
+            {
+              "ID": "@id",
+              "Name": "@cname",
+              "nickName":"@name",
+              "polygon":["30,114","30,115","30,116","30,117","30,118"]
+            }
+          ]
+        }
+      }
+    },
+    //删除
+    "POST /api/GetCloudTableData/:id/delete": {
+      "info": {
+        "summary": "删除 by POST",
+        "module": "接口配置示例-RESTFul",
+        "description": "有些 REST 接口可能不能完全遵循 HTTP verb",
+        "author": "Swagger"
+      },
+      "request": {
+      },
+      "response": {
+        "Msg": "删除成功!",
+        "isSuccess": true,
+        "ReturnValue": {
+
+        }
+      }
+    },
+    //获取车辆列表接口
+    "GET /api/GetVehicleList": {
+      "info": {
+        "summary": "配置一个 GET 接口, 以 JSON 作为输入参数",
+        "module": "获取菜单接口",
+        "description": "",
+        "author": "Sun"
+      },
+      "request": {
+        "body": {
+          "*Account": "ximoo"
+        }
+      },
+      "response": {
+        "Msg": "获取成功!",
+        "isSuccess": true,
+        "ReturnValue": {
+          "DataList|1-10000": [
+            {
+              "ID": "@id",
+              "VehicleNum": "鄂A@natural(10000, 99999)",
+              "DeviceNum": "@integer(3000)",
+              "MobileStatus": "@boolean",
+              "StarStatus": "@boolean",
+              "Date": "@now",
+              "Address": "@county@province@city",
+              "Company": "@cname 运输有限公司"
+            }
+          ]
+        }
+      }
+    }
+  }
+}

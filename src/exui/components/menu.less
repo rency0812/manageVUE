@@ -1,0 +1,245 @@
+@menu-prefix-cls: ~"@{css-prefix}menu";
+@menu-dropdown-item-prefix-cls: ~"@{menu-prefix-cls}-horizontal .@{menu-prefix-cls}-submenu .@{select-dropdown-prefix-cls} .@{menu-prefix-cls}-item";
+
+.@{menu-prefix-cls} {
+    display: block;
+    margin: 0;
+    padding: 0;
+    outline: none;
+    list-style: none;
+    color: @text-color;
+    font-size: @font-size-base;
+    position: relative;
+
+    &-horizontal{
+        height: 32px;
+        line-height: 32px;
+
+        &.@{menu-prefix-cls}-light{
+            &:after{
+                content: '';
+                display: block;
+                width: 100%;
+                height: 1px;
+                background: @border-color-base;
+                position: absolute;
+                bottom: 0;
+                left: 0;
+            }
+        }
+    }
+    &-vertical{
+        &.@{menu-prefix-cls}-light{
+            &:after{
+                content: '';
+                display: block;
+                width: 1px;
+                height: 100%;
+                background: @border-color-base;
+                position: absolute;
+                top: 0;
+                bottom: 0;
+                right: 0;
+                z-index: 1;
+            }
+        }
+    }
+
+    &-light{
+        background: #f8f8f8;
+    }
+    &-dark{
+        background: @title-color;
+    }
+    &-primary{
+      background: @start;
+      background: -moz-linear-gradient(@deg, @start,@end);
+      background: -webkit-gradient(@deg, @start,@end);
+      background: -webkit-linear-gradient(@deg, @start,@end);
+      background: -ms-linear-gradient(@deg, @start,@end);
+      background: linear-gradient(@deg, @start,@end);
+    }
+
+    &-item{
+        display: block;
+        outline: none;
+        list-style: none;
+        font-size: @font-size-base;
+        position: relative;
+        z-index: 1;
+        cursor: pointer;
+        transition: all @transition-time @ease-in-out;
+    }
+    &-item > i{
+        margin-right: 6px;
+    }
+    &-submenu-title > i, &-submenu-title span > i{
+        margin-right: 8px;
+    }
+
+    &-horizontal &-item,
+    &-horizontal &-submenu
+    {
+        float: left;
+        padding: 0 15px;
+        position: relative;
+        cursor: pointer;
+        //z-index: 3;
+        transition: all @transition-time @ease-in-out;
+    }
+
+    &-light&-horizontal &-item, &-light&-horizontal &-submenu{
+        height: inherit;
+        line-height: inherit;
+        border-bottom: 2px solid transparent;
+        color: @text-color;
+        &-active, &:hover{
+            color: @primary-color;
+            border-bottom: 2px solid @primary-color;
+        }
+    }
+
+    &-dark&-horizontal &-item, &-dark&-horizontal &-submenu{
+        color: #fff;
+        &-active, &:hover{
+            color: #fff;
+        }
+    }
+
+    &-primary&-horizontal &-item, &-primary&-horizontal &-submenu{
+        color: #fff;
+        &-active, &:hover{
+            background: @link-active-color;
+        }
+    }
+
+    &-horizontal &-submenu .@{select-dropdown-prefix-cls} {
+        min-width: 100%;
+        width: auto;
+        max-height: none;
+        .@{menu-prefix-cls}-item{
+            height: auto;
+            line-height: normal;
+            border-bottom: 0;
+            float: none;
+        }
+    }
+
+    &-item-group{
+        line-height: normal;
+        &-title {
+            height: 30px;
+            line-height: 30px;
+            padding-left: 8px;
+            font-size: @font-size-small;
+            color: @legend-color;
+        }
+
+        & > ul{
+            padding: 0 !important;
+            list-style: none !important;
+        }
+    }
+
+    // vertical
+    &-vertical &-item,
+    &-vertical &-submenu-title
+    {
+        padding: 9px 14px;
+        position: relative;
+        cursor: pointer;
+        z-index: 1;
+        transition: all @transition-time @ease-in-out;
+
+        &:hover{
+            background: @background-color-select-hover;
+        }
+    }
+
+    &-vertical &-submenu-title-icon{
+        float: right;
+        position: relative;
+        top: 4px;
+    }
+    &-submenu-title-icon {
+        transition: transform @transition-time @ease-in-out;
+    }
+    &-opened &-submenu-title-icon{
+        transform: rotate(180deg);
+    }
+
+    &-vertical &-submenu &-item{
+        padding-left: 43px;
+    }
+    &-vertical &-item-group{
+        &-title{
+            height: 48px;
+            line-height: 48px;
+            font-size: @font-size-base;
+            padding-left: 28px;
+        }
+    }
+    &-dark&-vertical &-item-group{
+        &-title{
+            color: @text-color;
+        }
+    }
+
+    &-light&-vertical &-item{
+        border-right: 4px solid transparent;
+        &-active:not(.@{menu-prefix-cls}-submenu){
+            color: @primary-color;
+            border-right: 4px solid @primary-color;
+            z-index: 2;
+        }
+    }
+
+    &-dark&-vertical &-item, &-dark&-vertical &-submenu-title{
+        color: rgba(255,255,255,.85);
+        border-left:4px solid transparent;
+        &-active:not(.@{menu-prefix-cls}-submenu),
+        &-active:not(.@{menu-prefix-cls}-submenu):hover
+        {
+            color: @text-color;
+            background: #f8f8f8;
+            border-left:4px solid @menu-dark-active-bg;
+        }
+        &:hover{
+            color: @text-color;
+            background: #f8f8f8;
+            border-left:4px solid @menu-dark-active-bg;
+        }
+        &-active:not(.@{menu-prefix-cls}-submenu){
+            color: @text-color;
+            background: #f8f8f8;
+            border-left:4px solid @menu-dark-active-bg;
+        }
+    }
+    &-dark&-vertical &-submenu &-item{
+        &:hover{
+            color: #fff;
+            background: transparent !important;
+        }
+        &-active,&-active:hover{
+            border-right: none;
+            color: #fff;
+            background: @primary-color !important;
+        }
+    }
+    &-dark&-vertical &-item-active &-submenu-title{
+        color: #fff;
+    }
+
+    &-dark&-vertical &-opened{
+        background: @menu-dark-active-bg;
+        .@{menu-prefix-cls}-submenu-title{
+            background: @title-color;
+        }
+    }
+}
+.select-item(@menu-prefix-cls, @menu-dropdown-item-prefix-cls);
+
+.@{menu-dropdown-item-prefix-cls} {
+    padding: 7px 16px 8px;
+    font-size: @font-size-base !important;
+}

@@ -1,0 +1,8 @@
+{
+  "devDependencies": {
+    "puer-mock": "^1.2.2"
+  },
+  "dependencies": {
+    "puer-mock": "^1.2.2"
+  }
+}

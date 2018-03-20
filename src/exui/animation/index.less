@@ -1,0 +1,50 @@
+.motion-common() {
+    animation-duration: @animation-time;
+    animation-fill-mode: both;
+}
+
+.make-motion(@className, @keyframeName) {
+    .@{className}-enter, .@{className}-appear {
+        .motion-common();
+        animation-play-state: paused;
+    }
+    .@{className}-leave {
+        .motion-common();
+        animation-play-state: paused;
+    }
+    .@{className}-enter, .@{className}-appear {
+        animation-name: ~"@{keyframeName}In";
+        animation-play-state: running;
+    }
+    .@{className}-leave {
+        animation-name: ~"@{keyframeName}Out";
+        animation-play-state: running;
+    }
+}
+
+@keyframes shake-horizontal {
+    0%, 100% {
+        transform: translateX(0);
+        }
+
+    10%, 30%, 50%, 70% {
+        transform: translateX(-10px);
+        }
+
+    20%, 40%, 60% {
+        transform: translateX(10px);
+        }
+
+    80% {
+        transform: translateX(8px);
+        }
+
+    90% {
+        transform: translateX(-8px);
+        }
+    }
+
+@import "fade";
+@import "move";
+@import "ease";
+@import "slide";

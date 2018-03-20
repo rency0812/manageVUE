@@ -1,0 +1,87 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title></title>
+    <script src="~/Scripts/jquery-1.6.4.min.js"></script>
+
+    <script src="~/Scripts/jquery.signalR-2.2.2.js"></script>
+    @*<script src="http://127.0.0.1:10201/signalr/hubs"></script>*@
+    <script src="http://signalr.bss.comlbs.com/signalr/hubs"></script>
+</head>
+<body>
+  
+        <input type="button" value="订阅GPS" id="btnSubGps" />
+        <input type="button" value="退订订阅GPS" id="btnUnSubGps" />
+        <script type="text/javascript">
+            function log(msg) {
+                console.log(msg);
+            }
+
+            $(document).ready(function () {
+                //Set the hubs URL for the connection
+                jQuery.support.cors = true;
+                $.connection.hub.url = "http://signalr.bss.comlbs.com/signalr";
+                var hub = $.connection.hub;
+                // Declare a proxy to reference the hub.
+                var gpshub = $.connection.GpsHub;
+
+
+                //###################################
+                //公开的方法见http://127.0.0.1:10201/signalr/hubs
+                //注意 js 区分大小写。
+                //目前服务器 向client推送 定义了三个方法
+                //handlerGps（List<GpsData>），handlerAlarm(List<AlarmSerie>),handlerMessage(obj)
+                gpshub.client.handlerGps = function (items) {
+                    if (items.length == 0) return;
+                    $.each(items, function () {
+                        log(this.PhoneNum + ' ' + this.GpsDateTime+' ' + this.Speed);
+                    });
+                };
+
+
+                //reconnection
+                hub.disconnected(function () {
+                    log('disconnected.' + new Date().getSeconds().toString());
+                    setTimeout(function () {
+                        log('reconnect...' + new Date().toString());
+                        hub.start().done(function () {
+                            log("reconn succ.");
+                        });
+                    }, 5000); // Restart connection after 5 seconds.
+                });
+
+                // Start the connection.
+                hub.start().done(function () {
+                    log("start succ.");
+
+                }).fail(function (err) {
+                    log(err);
+                    console.log('Could not connect.' + err);
+                });
+
+
+
+                //订阅GPS
+                $("#btnSubGps").click(function () {
+                    //gpshub: 定义的 hub类型
+                    // gpshub.server表示  向服务器端请求，如果是服务器响应事件为 gpshub.client
+                    //sub 为服务器端公共的方法 订阅GPS
+                    //unSub 退订GPS
+                    //subAlarm 订阅报警
+                    //unSubAlarm 退订报警
+                    //hello ping心跳，根据情况，如果有长时间 断连接状态，定时1分钟 hello下。
+                    gpshub.server.sub("016202706269,016202703059");
+                    log("sub gps");
+                });
+
+            });
+        </script>
+   
+</body>
+</html>
