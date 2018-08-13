@@ -43,11 +43,11 @@
    npm install --save babel-polyfill  解决ie9报错问题
 
 
-需要掌握的技术：
-Vue.js             --------- 数据驱动的新一代JS库
-Vuex              --------- vue的数据状态存储插件
-Axios             --------- 更加强大的AJAX
-Vue-router        --------  vue的路由设置，可以在这里做很多钩子进行简化操作
-Webpack          -------  前端打包整合工具
-IviewUI(或者可以用elementUIi进行替换)  ---------UI组件库
-Mockjs           -------   后端接口数据模拟
+技术：
+Vue.js             
+Vuex              
+Axios             
+Vue-router        
+Webpack          
+IviewUI(或者可以用elementUIi进行替换) 
+Mockjs        
