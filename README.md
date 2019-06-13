@@ -1,4 +1,5 @@
-# manageVUE
+### manageVUE
+```
 后台管理
 文件结构：
 
@@ -32,8 +33,7 @@
 ---- _mockserver.json 　:  后台接口模拟文件，可参考http://mockjs.com/examples.html编写模拟的接口数据
 ---- webpack.base.config.js  :  webpack基本设置,一般不要动它
 ---- webpack.dev.config.js   :  webpack 开发环境配置,一般不要动它;启动命令:npm run dev
----- webpack.prod.config.js  :  webpack 生产环境配置,一般不要动它;启动命令:npm run build
-                         
+---- webpack.prod.config.js  :  webpack 生产环境配置,一般不要动它;启动命令:npm run build                       
 
 依赖库安装：
 根目录下命令:
@@ -50,4 +50,5 @@ Axios
 Vue-router        
 Webpack          
 IviewUI(或者可以用elementUIi进行替换) 
-Mockjs        
+Mockjs    
+```
